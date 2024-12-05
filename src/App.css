@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 10vh;
   pointer-events: none;
 }
 
@@ -15,13 +15,45 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 5vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.caseButton {
+  height: 8rem;
+  width: 8rem;
+  margin: 2rem
+}
+
+.squaresContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.fillContainer {
+  background-color: aliceblue;
+  min-width: 5vh;
+  min-height: 12rem;
+}
+
+.homeButton {
+  display: flex;
+  align-items: center;
+  background-color: #282c34;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.homeButton .fa-home {
+  margin-right: 8px;
 }
 
 .App-link {
@@ -35,4 +67,65 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Add this to your CSS file */
+.gameTicTacToe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.boardTicTacToe {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 5px;
+}
+
+.squareTicTacToe {
+  width: 100px;
+  height: 100px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.reset-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Add this to your CSS file */
+.gameMemory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.boardMemory {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4, 100px);
+  gap: 10px;
+}
+
+.cardMemory {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  background-color: lightgray;
+  border: 1px solid #000;
+}
+
+.card.flipped {
+  background-color: white;
 }

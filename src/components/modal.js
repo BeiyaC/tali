@@ -22,7 +22,7 @@ const Modal = ({ message,onClose, isCorrect }) => {
                     </div>
 
                 }
-                <button className="basic-button" onClick={handleClose}>Close</button>
+                <button className="basic-button rounded" onClick={handleClose}>Close</button>
             </div>
         </div>
     );

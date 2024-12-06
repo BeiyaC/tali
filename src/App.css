@@ -113,6 +113,18 @@
   @apply text-black
 }
 
+.choice-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: white;
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+  @apply text-black
+}
+
 /* Add this to your Tailwind CSS configuration or a global CSS file */
 .boardMemory {
   @apply grid gap-2 justify-items-center;

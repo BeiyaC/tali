@@ -116,7 +116,7 @@ const Quizz = () => {
                 <h3>{currentQuestion.question}</h3>
                 <div className="fillContainer">
                     <button
-                        className="basic-button m-5 group inline-flex items-center gap-2 rounded text-sm font-semibold transition-all hover:text-white hover:shadow-lg active:scale-95"
+                        className="choice-button m-5 group inline-flex items-center gap-2 rounded text-sm font-semibold transition-all hover:shadow-lg active:scale-95"
                         disabled={isSubmitted}
                     >
                         {choice}

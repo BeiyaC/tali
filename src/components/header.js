@@ -17,6 +17,7 @@ const Header = () => {
                 <FontAwesomeIcon icon={faHome} size="xl" color="#ccb89f"/>
             </button>
             <img src={logo} className="App-logo" alt="logo"/>
+
         </header>
     )
 }

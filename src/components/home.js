@@ -19,7 +19,7 @@ const Home = () => {
         <div className="App">
             <Header />
             <div className="App-content flex-col m-5">
-                <div className="flex-col justify-items-center m-5">
+                <div className="flex flex-col items-center m-5">
                     <h2 className="rye-regular">Welcome to our Challenge Mode. You are able to choose between our two modes.</h2>
                     <img src={challenge} className="h-20 mt-5" alt="logo"/>
                 </div>

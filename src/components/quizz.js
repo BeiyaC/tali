@@ -61,6 +61,7 @@ const Quizz = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState("");
+    const [isCorrect, setIsCorrect] = useState(false);
 
     useEffect(() => {
         const randomIndex = Math.floor(Math.random() * questions.length);
@@ -72,13 +73,9 @@ const Quizz = () => {
     };
 
     const submit = () => {
-        if (choice === currentQuestion.answer) {
-            setBgColor("green");
-            setModalMessage("Correct answer!");
-        } else {
-            setBgColor("red");
-            setModalMessage("Wrong answer!");
-        }
+        const correct = choice === currentQuestion.answer;
+        setIsCorrect(correct);
+        setModalMessage(correct ? "Correct answer!" : "Wrong answer!");
         setIsSubmitted(true);
         setShowModal(true);
     };
@@ -118,7 +115,7 @@ const Quizz = () => {
                     </button>
                 </div>
             </div>
-            {showModal && <Modal message={modalMessage} onClose={() => setShowModal(false)} />}
+            {showModal && <Modal message={modalMessage} onClose={() => setShowModal(false)} isCorrect={isCorrect} />}
         </div>
     );
 };

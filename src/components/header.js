@@ -14,7 +14,7 @@ const Header = () => {
     return (
         <header className="App-header">
             <button onClick={goHome} className="homeButton">
-                <FontAwesomeIcon icon={faHome}/>
+                <FontAwesomeIcon icon={faHome} size="xl" color="#ccb89f"/>
             </button>
             <img src={logo} className="App-logo" alt="logo"/>
         </header>

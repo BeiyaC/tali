@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Timer from "./timer";
+import Modal from "./modal";
 
 const Memory = () => {
     const initialCards = [
@@ -12,6 +13,8 @@ const Memory = () => {
     const [matchedCards, setMatchedCards] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
     const [timeLeft, setTimeLeft] = useState(45); // 60 seconds timer
+    const [showModal, setShowModal] = useState(false);
+    const [modalMessage, setModalMessage] = useState("");
 
     useEffect(() => {
         if (flippedCards.length === 2) {
@@ -33,13 +36,15 @@ const Memory = () => {
             return () => clearTimeout(timerId);
         } else {
             setIsDisabled(true);
-            alert("Time is over! You lost the game.");
+            setModalMessage("Time is over! You lost the game.");
+            setShowModal(true);
         }
     }, [timeLeft]);
 
     useEffect(() => {
         if (matchedCards.length === cards.length) {
-            alert("Congratulations! You have matched all the cards.");
+            setModalMessage("Congratulations! You have matched all the cards.");
+            setShowModal(true);
         }
     }, [matchedCards]);
 
@@ -54,6 +59,7 @@ const Memory = () => {
         setMatchedCards([]);
         setTimeLeft(60); // Reset timer
         setIsDisabled(false);
+        setShowModal(false);
     };
 
     return (
@@ -75,6 +81,8 @@ const Memory = () => {
                     ))}
                 </div>
             </div>
+
+            {showModal && <Modal message={modalMessage} onClose={() => setShowModal(false)} />}
         </div>
     );
 };

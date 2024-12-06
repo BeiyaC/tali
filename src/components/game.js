@@ -41,6 +41,7 @@ const Game = () => {
                     >
                         <span className="block rounded-sm px-6 py-2 group-hover:bg-transparent">Play Scroll</span>
                         <span className="text-sm">(You have to choose a player to fight into this game, winner pick a bonus card)</span>
+                        <span className="text-sm">(BE CAREFUL, when you'll finish the game you will have to go back)</span>
 
                     </button>
                     <button

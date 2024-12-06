@@ -113,7 +113,7 @@ const Quizz = () => {
         <div className="App">
             <Header />
             <div>
-                <h3>{currentQuestion.question}</h3>
+                <h3 className="rye-regular">{currentQuestion.question}</h3>
                 <div className="fillContainer">
                     <button
                         className="choice-button m-5 group inline-flex items-center gap-2 rounded text-sm font-semibold transition-all hover:shadow-lg active:scale-95"
@@ -140,7 +140,7 @@ const Quizz = () => {
                         onClick={submit}
                         disabled={isSubmitted}
                     >
-                        <span className="block rounded-sm px-6 py-2 group-hover:bg-transparent">Submit</span>
+                        <span className="rye-regular block rounded-sm px-6 py-2 group-hover:bg-transparent">Submit</span>
                     </button>
                 </div>
             </div>

@@ -13,8 +13,8 @@ const Shifumi = () => {
                     </span>
                 </div>
                 <div className="text-center mt-4">
-                    <span className="result block text-lg sm:text-xl md:text-2xl lg:text-3xl">Choose someone and play in real life.</span>
-                    <span className="result block text-lg sm:text-xl md:text-2xl lg:text-3xl">The first player to win 3 points will get a bonus card.</span>
+                    <span className="rye-regular result block text-lg sm:text-xl md:text-2xl lg:text-3xl">Choose someone and play in real life.</span>
+                    <span className="rye-regular result block text-lg sm:text-xl md:text-2xl lg:text-3xl">The first player to win 3 points will get a bonus card.</span>
                 </div>
             </div>
         </section>

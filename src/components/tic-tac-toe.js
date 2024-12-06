@@ -45,11 +45,11 @@ const TicTacToe = () => {
     return (
         <div className="App">
             <div className="gameTicTacToe flex flex-col items-center">
-                <div className="status mb-4 text-lg font-bold">{status}</div>
+                <div className="rye-regular status mb-4 text-lg font-bold">{status}</div>
                 <div className="boardTicTacToe grid grid-cols-3 gap-2 p-2 bg-white">
                     {board.map((_, index) => renderSquare(index))}
                 </div>
-                <button className="basic-button m-5 group inline-flex items-center gap-2 rounded text-sm font-semibold transition-all hover:text-white hover:shadow-lg active:scale-95" onClick={() => setBoard(Array(9).fill(null))}>
+                <button className="rye-regular basic-button m-5 group inline-flex items-center gap-2 rounded text-sm font-semibold transition-all hover:text-white hover:shadow-lg active:scale-95" onClick={() => setBoard(Array(9).fill(null))}>
                     Reset
                 </button>
             </div>

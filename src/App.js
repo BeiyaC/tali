@@ -4,7 +4,8 @@ import Problem from './components/problem';
 import Quizz from "./components/quizz";
 import Game from "./components/game";
 import './App.css';
-import './Timer.css'
+import './Timer.css';
+import './Shifumi.css';
 
 function App() {
 

@@ -1,0 +1,66 @@
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.result_images {
+    display: flex;
+    column-gap: 7rem;
+}
+.container.start .user_result {
+    transform-origin: left;
+    animation: userShake 0.7s ease infinite;
+}
+@keyframes userShake {
+    50% {
+        transform: rotate(10deg);
+    }
+}
+
+.container.start .cpu_result {
+    transform-origin: right;
+    animation: cpuShake 0.7s ease infinite;
+}
+@keyframes cpuShake {
+    50% {
+        transform: rotate(-10deg);
+    }
+}
+.result_images img {
+    width: 100px;
+}
+.user_result img {
+    transform: rotate(90deg);
+}
+.cpu_result img {
+    transform: rotate(-90deg) rotateY(180deg);
+}
+.result {
+    text-align: center;
+    font-size: 2rem;
+    color: #cbb79d;
+    margin-top: 1.5rem;
+}
+.animated-rock-user {
+    animation: rockAnimationUser 2s infinite;
+}
+
+@keyframes rockAnimationUser {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(-15deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.animated-rock-cpu {
+    animation: rockAnimationCpu 2s infinite;
+}
+
+@keyframes rockAnimationCpu {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(15deg); }
+    100% { transform: rotate(0deg); }
+}

@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from "react";
 import Timer from "./timer";
 import Modal from "./modal";
+import imgA from "../assets/c++.png";
+import imgB from "../assets/python.png";
+import imgC from "../assets/java.png";
+import imgD from "../assets/ruby.png";
+import imgE from "../assets/c-sharp.png";
+import imgF from "../assets/javascript.png";
+import imgG from "../assets/php.png";
+import imgH from "../assets/rust.png";
 
 const Memory = () => {
     const initialCards = [
-        "A", "A", "B", "B", "C", "C", "D", "D",
-        "E", "E", "F", "F", "G", "G", "H", "H"
+        imgA, imgA, imgB, imgB, imgC, imgC, imgD, imgD,
+        imgE, imgE, imgF, imgF, imgG, imgG, imgH, imgH
     ].sort(() => Math.random() - 0.5);
 
     const [cards, setCards] = useState(initialCards);
@@ -16,7 +24,6 @@ const Memory = () => {
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState("");
     const [isCorrect, setIsCorrect] = useState(false);
-
 
     useEffect(() => {
         if (flippedCards.length === 2) {
@@ -76,10 +83,10 @@ const Memory = () => {
                     {cards.map((card, index) => (
                         <div
                             key={index}
-                            className={`cardMemory flex items-center justify-center text-sm font-bold uppercase text-white shadow-md transition-all border-2 border-gray-300 ${flippedCards.includes(index) || matchedCards.includes(index) ? "bg-white text-black" : "bg-[url('./assets/house2.png')] bg-contain"}`}
+                            className={`cardMemory flex items-center justify-center text-sm font-bold uppercase text-white shadow-md transition-all border-2 border-gray-300 ${flippedCards.includes(index) || matchedCards.includes(index) ? "bg-white" : "bg-[url('./assets/house2.png')] bg-contain"}`}
                             onClick={() => handleCardClick(index)}
                         >
-                            {flippedCards.includes(index) || matchedCards.includes(index) ? card : ""}
+                            {flippedCards.includes(index) || matchedCards.includes(index) ? <img src={card} alt="card" className="w-full h-full object-contain"/> : ""}
                         </div>
                     ))}
                 </div>

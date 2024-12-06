@@ -18,7 +18,7 @@ const Home = () => {
     return (
         <div className="App">
             <Header />
-            <div className="App-content flex-col justify-items-center">
+            <div className="App-content flex-col justify-items-center m-5">
                 <div className="justify-items-center">
                     <h2 className="">Welcome to our Challenge Mode. You are able to choose between our two modes.</h2>
                     <img src={challenge} className="h-20 mt-5" alt="logo"/>

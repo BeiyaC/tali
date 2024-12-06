@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import $ from 'jquery';
 
 const Timer = () => {
-    const animationTime = 45;
-    const days = 45;
+    const animationTime = 50;
+    const days = 50;
     const [actualDay, setActualDay] = useState(days);
 
     useEffect(() => {

@@ -12,9 +12,11 @@ const Memory = () => {
     const [flippedCards, setFlippedCards] = useState([]);
     const [matchedCards, setMatchedCards] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
-    const [timeLeft, setTimeLeft] = useState(45); // 60 seconds timer
+    const [timeLeft, setTimeLeft] = useState(50); // 60 seconds timer
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState("");
+    const [isCorrect, setIsCorrect] = useState(false);
+
 
     useEffect(() => {
         if (flippedCards.length === 2) {
@@ -44,6 +46,7 @@ const Memory = () => {
     useEffect(() => {
         if (matchedCards.length === cards.length) {
             setModalMessage("Congratulations! You have matched all the cards.");
+            setIsCorrect(true);
             setShowModal(true);
         }
     }, [matchedCards]);
@@ -65,7 +68,7 @@ const Memory = () => {
     return (
         <div className="App">
             <div className="h-40">
-                {timeLeft > 0 && <Timer />}
+                {!isCorrect && timeLeft > 0 && <Timer />}
             </div>
 
             <div className="gameMemory mt-4">
@@ -82,7 +85,7 @@ const Memory = () => {
                 </div>
             </div>
 
-            {showModal && <Modal message={modalMessage} onClose={() => setShowModal(false)} />}
+            {showModal && <Modal message={modalMessage} onClose={() => setShowModal(false)} isCorrect={isCorrect} />}
         </div>
     );
 };

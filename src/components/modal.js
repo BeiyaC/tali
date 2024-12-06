@@ -1,7 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import card from "../assets/bonusCard.png"
 
-const Modal = ({ message, onClose, isCorrect }) => {
+const Modal = ({ message,onClose, isCorrect }) => {
+    const navigate = useNavigate();
+
+    const handleClose = () => {
+        onClose();
+        navigate('/');
+    };
+
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <div className="bg-white p-4 rounded shadow-lg">
@@ -14,7 +22,7 @@ const Modal = ({ message, onClose, isCorrect }) => {
                     </div>
 
                 }
-                <button className="basic-button" onClick={onClose}>Close</button>
+                <button className="basic-button" onClick={handleClose}>Close</button>
             </div>
         </div>
     );

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import Modal from "./modal";
 
 const TicTacToe = () => {
     const [board, setBoard] = useState(Array(9).fill(null));
     const [isXNext, setIsXNext] = useState(true);
+    const [showModal, setShowModal] = useState(false);
+    const [modalMessage, setModalMessage] = useState("");
 
     const handleClick = (index) => {
         if (board[index] || calculateWinner(board)) return;
@@ -29,6 +32,16 @@ const TicTacToe = () => {
     const isDraw = !winnerInfo && board.every(square => square !== null);
     const status = winnerInfo ? `Winner: ${winnerInfo.winner}` : isDraw ? "Draw" : `Next player: ${isXNext ? "X" : "O"}`;
 
+    if (winnerInfo && !showModal) {
+        setModalMessage(`Winner: ${winnerInfo.winner} can pick a bonus card !`);
+        setShowModal(true);
+    }
+
+    if (isDraw && !showModal) {
+        setModalMessage(`Draw: No one can pick card...`);
+        setShowModal(true);
+    }
+
     return (
         <div className="App">
             <div className="gameTicTacToe flex flex-col items-center">
@@ -40,6 +53,7 @@ const TicTacToe = () => {
                     Reset
                 </button>
             </div>
+            {showModal && <Modal message={modalMessage} onClose={() => setShowModal(false)} />}
         </div>
     );
 };

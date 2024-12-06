@@ -31,7 +31,7 @@ const Quizz = () => {
                 "To design clothes.",
                 "To build houses."
             ],
-            answer: "To communicate with a computer"
+            answer: "To communicate with a computer."
         },
         {
             question: "What does “bug” mean in coding?",
@@ -52,12 +52,41 @@ const Quizz = () => {
                 "Installing software."
             ],
             answer: "Fixing errors in the code."
+        },
+        {
+            question: "What is an algorithm?",
+            possibilities: [
+                "A step-by-step set of instructions to solve a problem.",
+                "A type of computer virus.",
+                "A programming language.",
+                "A random series of numbers."
+            ],
+            answer: "A step-by-step set of instructions to solve a problem."
+        },
+        {
+            question: "What is the name of the first programmer in history?",
+            possibilities: [
+                "Alan Turing",
+                "Ada Lovelace",
+                "Grace Hopper",
+                "Charles Babbage"
+            ],
+            answer: "Ada Lovelace"
+        },
+        {
+            question: "Which of these is NOT a programming language?",
+            possibilities: [
+                "Python",
+                "Java",
+                "Excel",
+                "C++"
+            ],
+            answer: "Excel"
         }
     ];
 
     const [currentQuestion, setCurrentQuestion] = useState({});
     const [choice, setChoice] = useState("");
-    const [bgColor, setBgColor] = useState("aliceblue");
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState("");
@@ -75,7 +104,7 @@ const Quizz = () => {
     const submit = () => {
         const correct = choice === currentQuestion.answer;
         setIsCorrect(correct);
-        setModalMessage(correct ? "Correct answer!" : "Wrong answer!");
+        setModalMessage(correct ? "Correct answer!" : "Wrong answer! You will not pick a bonus card...");
         setIsSubmitted(true);
         setShowModal(true);
     };

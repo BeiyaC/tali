@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Timer from "./timer";
 
 const Memory = () => {
     const initialCards = [
@@ -10,7 +11,7 @@ const Memory = () => {
     const [flippedCards, setFlippedCards] = useState([]);
     const [matchedCards, setMatchedCards] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
-    const [timeLeft, setTimeLeft] = useState(60); // 60 seconds timer
+    const [timeLeft, setTimeLeft] = useState(45); // 60 seconds timer
 
     useEffect(() => {
         if (flippedCards.length === 2) {
@@ -32,8 +33,15 @@ const Memory = () => {
             return () => clearTimeout(timerId);
         } else {
             setIsDisabled(true);
+            alert("Time is over! You lost the game.");
         }
     }, [timeLeft]);
+
+    useEffect(() => {
+        if (matchedCards.length === cards.length) {
+            alert("Congratulations! You have matched all the cards.");
+        }
+    }, [matchedCards]);
 
     const handleCardClick = (index) => {
         if (isDisabled || flippedCards.includes(index) || matchedCards.includes(index)) return;
@@ -48,27 +56,21 @@ const Memory = () => {
         setIsDisabled(false);
     };
 
-    const isGameComplete = matchedCards.length === cards.length;
-    const boardColor = isGameComplete ? "green" : timeLeft === 0 ? "red" : "white";
-
     return (
         <div className="App">
-            <div className="gameMemory">
-                <div className="status">Time left: {timeLeft} seconds</div>
-                <div className="boardMemory" style={{ backgroundColor: boardColor }}>
+            {timeLeft > 0 && <Timer />}
+            <div className="gameMemory mt-4">
+                <div className="boardMemory grid gap-2 p-2 border-2 border-gray-300 bg-white">
                     {cards.map((card, index) => (
                         <div
                             key={index}
-                            className={`cardMemory ${flippedCards.includes(index) || matchedCards.includes(index) ? "flipped" : ""}`}
+                            className={`cardMemory flex items-center justify-center text-sm font-bold uppercase text-white shadow-md transition-all border-2 border-gray-300 ${flippedCards.includes(index) || matchedCards.includes(index) ? "bg-white text-black" : "bg-[url('./assets/house2.png')] bg-contain"}`}
                             onClick={() => handleCardClick(index)}
                         >
-                            {flippedCards.includes(index) || matchedCards.includes(index) ? card : "?"}
+                            {flippedCards.includes(index) || matchedCards.includes(index) ? card : ""}
                         </div>
                     ))}
                 </div>
-                <button className="reset-button" onClick={resetGame}>
-                    Reset
-                </button>
             </div>
         </div>
     );

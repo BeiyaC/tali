@@ -3,24 +3,25 @@
 }
 
 .App-logo {
-  height: 10vh;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  height: 5vh;
+  width: 20vh;
+  @apply m-3
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 5vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.description {
+  background-image: url('./assets/parchemin.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .caseButton {
@@ -36,7 +37,9 @@
 }
 
 .fillContainer {
-  background-color: aliceblue;
+  background-image: url('./assets/tree.png');
+  background-size: contain;
+  background-position: center;
   min-width: 5vh;
   min-height: 12vh;
 }
@@ -44,7 +47,6 @@
 .homeButton {
   display: flex;
   align-items: center;
-  background-color: #282c34;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -81,6 +83,11 @@
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
   gap: 5px;
+  @apply place-items-center;
+  background-image: url('./assets/parchemin.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .squareTicTacToe {
@@ -91,58 +98,66 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
 }
 
-.reset-button {
+.basic-button {
   margin-top: 20px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  background-image: url('./assets/parchemin.png');
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+  @apply text-black
 }
 
-/* Add this to your CSS file */
-.gameMemory {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
+/* Add this to your Tailwind CSS configuration or a global CSS file */
 .boardMemory {
-  display: grid;
-  grid-template-columns: repeat(4, 100px);
-  grid-template-rows: repeat(4, 100px);
-  gap: 10px;
+  @apply grid gap-2 justify-items-center;
+  background-image: url('./assets/parchemin.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media (min-width: 1024px) {
+  .boardMemory {
+    @apply grid-cols-4 grid-rows-4;
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  .boardMemory {
+    @apply grid-cols-4 grid-rows-4;
+  }
+}
+
+@media (max-width: 767px) {
+  .boardMemory {
+    @apply grid-cols-4 grid-rows-4;
+  }
 }
 
 .cardMemory {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 3rem; /* 12 * 4px */
-  max-height: 48px;
-  width: 3rem; /* 12 * 4px */
-  max-width: 48px;
-  border-radius: 0.5rem; /* rounded-lg */
-  font-family: sans-serif; /* font-sans */
-  font-size: 0.875rem; /* text-sm */
-  font-weight: bold; /* font-bold */
-  text-transform: uppercase; /* uppercase */
-  color: #c43a3a; /* text-white */
-  box-shadow: 0 4px 6px -1px rgba(236, 72, 153, 0.2), 0 2px 4px -1px rgba(236, 72, 153, 0.2); /* shadow-md shadow-pink-500/20 */
-  transition: all 0.2s; /* transition-all */
+  @apply flex items-center justify-center text-sm font-bold uppercase text-black shadow-md transition-all;
 }
 
-.card.flipped {
-  background-color: white;
+@media (min-width: 1024px) {
+  .cardMemory {
+    @apply w-24 h-24;
+  }
 }
 
-/* Add this to your CSS file */
-.flex-wrap {
-  flex-wrap: nowrap;
+@media (max-width: 1023px) and (min-width: 768px) {
+  .cardMemory {
+    @apply w-20 h-20;
+  }
 }
 
-@media (max-width: 640px) {
-  .flex-wrap {
-    flex-wrap: wrap;
+@media (max-width: 767px) {
+  .cardMemory {
+    @apply w-16 h-16;
   }
 }

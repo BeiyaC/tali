@@ -16,14 +16,12 @@ const TicTacToe = () => {
         const winnerInfo = calculateWinner(board);
         const isWinningSquare = winnerInfo && winnerInfo.line.includes(index);
         return (
-        <button
-            class="middle none center h-12 max-h-[48px] w-12 max-w-[48px] rounded-lg font-sans text-sm font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            data-ripple-light="true"
-            onClick={() => handleClick(index)}
-            style={{backgroundColor: isWinningSquare ? "green" : "#ec4899"}}
-        >
-            {board[index]}
-        </button>
+            <button
+                className={`middle none center h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 rounded-lg font-sans text-xl font-bold uppercase text-white transition-all hover:shadow-lg focus:opacity-85 active:opacity-85 disabled:pointer-events-none disabled:opacity-50 ${isWinningSquare ? "bg-green-500" : "bg-black"}`}
+                onClick={() => handleClick(index)}
+            >
+                {board[index]}
+            </button>
         );
     };
 
@@ -33,12 +31,12 @@ const TicTacToe = () => {
 
     return (
         <div className="App">
-            <div className="gameTicTacToe">
-                <div className="status">{status}</div>
-                <div className="boardTicTacToe" style={{ backgroundColor: isDraw ? "red" : "white" }}>
+            <div className="gameTicTacToe flex flex-col items-center">
+                <div className="status mb-4 text-lg font-bold">{status}</div>
+                <div className="boardTicTacToe grid grid-cols-3 gap-2 p-2 bg-white">
                     {board.map((_, index) => renderSquare(index))}
                 </div>
-                <button className="reset-button" onClick={() => setBoard(Array(9).fill(null))}>
+                <button className="basic-button m-5 group inline-flex items-center gap-2 rounded text-sm font-semibold transition-all hover:text-white hover:shadow-lg active:scale-95" onClick={() => setBoard(Array(9).fill(null))}>
                     Reset
                 </button>
             </div>

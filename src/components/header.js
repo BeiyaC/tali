@@ -1,8 +1,8 @@
-import logo from "../logo.svg";
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
-
+import logo from '../assets/title.png';
 
 const Header = () => {
     const navigate = useNavigate();
@@ -15,13 +15,9 @@ const Header = () => {
         <header className="App-header">
             <button onClick={goHome} className="homeButton">
                 <FontAwesomeIcon icon={faHome}/>
-                Home
             </button>
             <img src={logo} className="App-logo" alt="logo"/>
-            <p>
-                Welcome to TALI game
-            </p>
         </header>
     )
 }
-export default Header
+export default Header;

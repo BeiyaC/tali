@@ -4,6 +4,7 @@ import Problem from './components/problem';
 import Quizz from "./components/quizz";
 import Game from "./components/game";
 import './App.css';
+import './Timer.css'
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/problem" element={<Problem />} />
             <Route path="/quizz" element={<Quizz />} />
-              <Route path="/game" element={<Game />} />
+            <Route path="/game" element={<Game />} />
           </Routes>
         </BrowserRouter>
       </div>

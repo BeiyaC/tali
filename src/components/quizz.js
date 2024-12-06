@@ -1,5 +1,6 @@
-import Header from "./header";
 import React, { useState, useEffect } from "react";
+import Header from "./header";
+import Modal from "./modal";
 
 const Quizz = () => {
     const questions = [
@@ -58,6 +59,8 @@ const Quizz = () => {
     const [choice, setChoice] = useState("");
     const [bgColor, setBgColor] = useState("aliceblue");
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const [modalMessage, setModalMessage] = useState("");
 
     useEffect(() => {
         const randomIndex = Math.floor(Math.random() * questions.length);
@@ -71,10 +74,13 @@ const Quizz = () => {
     const submit = () => {
         if (choice === currentQuestion.answer) {
             setBgColor("green");
+            setModalMessage("Correct answer!");
         } else {
             setBgColor("red");
+            setModalMessage("Wrong answer!");
         }
         setIsSubmitted(true);
+        setShowModal(true);
     };
 
     return (
@@ -82,9 +88,9 @@ const Quizz = () => {
             <Header />
             <div>
                 <h3>{currentQuestion.question}</h3>
-                <div className="fillContainer" style={{ backgroundColor: bgColor }}>
+                <div className="fillContainer">
                     <button
-                        className="inline-flex flex-col items-center gap-2 rounded-full border border-[#7629c8] px-6 py-2 text-sm font-semibold text-[#7629c8] transition-all hover:rotate-3 hover:scale-105 hover:shadow-lg active:scale-95 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                        className="basic-button m-5 group inline-flex items-center gap-2 rounded text-sm font-semibold transition-all hover:text-white hover:shadow-lg active:scale-95"
                         disabled={isSubmitted}
                     >
                         {choice}
@@ -94,7 +100,7 @@ const Quizz = () => {
                     {currentQuestion.possibilities?.map((possibility, index) => (
                         <button
                             key={index}
-                            className="inline-flex flex-col items-center gap-2 rounded-full border border-[#7629c8] px-6 py-2 text-sm font-semibold text-[#7629c8] transition-all hover:rotate-3 hover:scale-105 hover:shadow-lg active:scale-95 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                            className="basic-button m-5 group inline-flex items-center gap-2 rounded text-sm font-semibold transition-all hover:text-white hover:shadow-lg active:scale-95"
                             onClick={() => addToChoice(possibility)}
                             disabled={isSubmitted}
                         >
@@ -104,14 +110,15 @@ const Quizz = () => {
                 </div>
                 <div>
                     <button
-                        className="group inline-flex items-center gap-2 rounded bg-gradient-to-r from-[#9e58e9] to-blue-500 p-[2px] text-sm font-semibold transition-all hover:text-white hover:shadow-lg active:scale-95 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                        className="basic-button m-5 group inline-flex items-center gap-2 rounded text-sm font-semibold transition-all hover:text-white hover:shadow-lg active:scale-95"
                         onClick={submit}
                         disabled={isSubmitted}
                     >
-                        <span className="block rounded-sm bg-white px-6 py-2 group-hover:bg-transparent">Submit</span>
+                        <span className="block rounded-sm px-6 py-2 group-hover:bg-transparent">Submit</span>
                     </button>
                 </div>
             </div>
+            {showModal && <Modal message={modalMessage} onClose={() => setShowModal(false)} />}
         </div>
     );
 };

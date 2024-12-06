@@ -58,7 +58,10 @@ const Memory = () => {
 
     return (
         <div className="App">
-            {timeLeft > 0 && <Timer />}
+            <div className="h-40">
+                {timeLeft > 0 && <Timer />}
+            </div>
+
             <div className="gameMemory mt-4">
                 <div className="boardMemory grid gap-2 p-2 border-2 border-gray-300 bg-white">
                     {cards.map((card, index) => (
